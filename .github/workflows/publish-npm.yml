@@ -55,6 +55,10 @@ jobs:
     needs: publish
     if: success()
     steps:
+      - name: Set version
+        id: version
+        run: echo "number=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+
       - name: Post to Slack
         uses: slackapi/slack-github-action@v2.1.1
         with:
@@ -65,4 +69,4 @@ jobs:
             text: "@tigerdata/pg-aiguide@${{ github.ref_name }} published to npm"
             blocks:
               - type: "markdown"
-                text: "**@tigerdata/pg-aiguide@${{ github.ref_name }} published to npm**\n[View on npm](https://www.npmjs.com/package/@tigerdata/pg-aiguide/v/${{ github.ref_name }}) • [View Workflow Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+                text: "**@tigerdata/pg-aiguide@${{ github.ref_name }} published to npm**\n[View on npm](https://www.npmjs.com/package/@tigerdata/pg-aiguide/v/${{ steps.version.outputs.number }}) • [View Workflow Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
