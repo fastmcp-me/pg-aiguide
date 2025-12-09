@@ -72,6 +72,64 @@
           "name": "DB_SCHEMA"
         }
       ]
+    },
+    {
+      "registryType": "oci",
+      "identifier": "ghcr.io/timescale/pg-aiguide:latest",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Your API key for text embeddings via OpenAI",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "OPENAI_API_KEY"
+        },
+        {
+          "description": "PostgreSQL host to connect to",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "PGHOST"
+        },
+        {
+          "description": "PostgreSQL port to connect to",
+          "isRequired": true,
+          "format": "number",
+          "isSecret": true,
+          "name": "PGPORT"
+        },
+        {
+          "description": "PostgreSQL user to connect as",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "PGUSER"
+        },
+        {
+          "description": "PostgreSQL password to connect with",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "PGPASSWORD"
+        },
+        {
+          "description": "PostgreSQL database to connect to",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "PGDATABASE"
+        },
+        {
+          "description": "PostgreSQL database schema to use",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true,
+          "name": "DB_SCHEMA"
+        }
+      ]
     }
   ]
 }
