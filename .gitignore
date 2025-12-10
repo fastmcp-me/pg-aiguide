@@ -6,6 +6,8 @@ ingest/postgres
 .idea
 .migrate
 .mcpregistry_*
+download/
+server.json
 
 # Temporary files directory
 tmp/
