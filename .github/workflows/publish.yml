@@ -114,9 +114,11 @@ jobs:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           payload: |
             channel: ${{ secrets.SLACK_CHANNEL_ID }}
-            text: "@tigerdata/pg-aiguide@${{ github.ref_name }} published"
+            unfurl_links: false
+            unfurl_media: false
+            text: "pg-aiguide ${{ github.ref_name }} published"
             blocks:
               - type: "markdown"
                 text: |
-                  **@tigerdata/pg-aiguide@${{ github.ref_name }} published**
+                  **pg-aiguide ${{ github.ref_name }} published**
                   [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) | [npm](https://www.npmjs.com/package/@tigerdata/pg-aiguide/v/${{ steps.version.outputs.number }}) | [mcp registry](https://registry.modelcontextprotocol.io/?q=pg-aiguide) | [ghcr.io](https://ghcr.io/timescale/pg-aiguide) | [docker.io](https://hub.docker.com/r/timescale/pg-aiguide)
